@@ -1,0 +1,71 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<style>
+#u0100 input { display: inline-block; }
+</style>
+</head>
+
+<table id="u0100">
+  <tr>
+    <td class="chmod">hi</td>
+    <td><input type="checkbox"><input type="checkbox"><input
+type="checkbox"></td>
+  </tr>
+</table>
+
+<script>
+var \u0100 = function app()
+  {
+  app.controller =
+    {
+    insert: function(event){app.model.cache =
+app.model.import(document.querySelector("#u0100").innerHTML)},
+    calc: function(event){
+     var checked = app.model.cache().replace(/("checkbox")/g,"$1" +'
+checked="true"');
+     var unchecked = app.model.cache().replace(/(checked="true")/g,"");
+     var hidden_unchecked =
+app.model.cache().replace(/(<input.*)hidden(.)(.).*/,"$1checkbox$2" +'
+checked="true"'+"$3").match(/<input.*/).toString();
+     var hidden_checked =
+app.model.cache().replace(/.*(<input\s[^>]*)checked="true"([^>]+)hidden(.*)/,"$1$2checkbox$3").match(/<input.*/).toString();
+
+     console.log(hidden_checked);
+
+     if(event.target.checked)
+       {
+       document.querySelector("#u0100").innerHTML =
+checked.replace(/<input.*hidden../, hidden_unchecked);
+       }
+     else
+       {
+       document.querySelector("#u0100").innerHTML =
+unchecked.replace(/<input\s[^>]+hidden.*/, hidden_checked);
+       }
+     },
+    print: function(){/*console.log(app.model.cache() )*/}
+    }
+
+  app.model =
+    {
+    import: function(data) {var node = node || data; return
+function(){return node;}},
+    cache: function(){}
+    }
+
+  document.querySelector("#u0100").addEventListener("click", function(event)
+    {
+    if(/input/i.test(event.target.nodeName))
+      {
+      event.target.type="hidden";
+      app.controller.insert(event);
+      app.controller.calc(event);
+      app.controller.print();
+      }
+    }
+   , false)
+  }()
+</script>
+
+
