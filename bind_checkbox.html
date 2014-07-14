@@ -9,8 +9,7 @@
 <table id="u0100">
   <tr>
     <td class="chmod">hi</td>
-    <td><input type="checkbox"><input type="checkbox"><input
-type="checkbox"></td>
+    <td><input type="checkbox"><input type="checkbox"><input type="checkbox"></td>
   </tr>
 </table>
 
@@ -22,12 +21,10 @@ var \u0100 = function app()
     insert: function(event){app.model.cache =
 app.model.import(document.querySelector("#u0100").innerHTML)},
     calc: function(event){
-     var checked = app.model.cache().replace(/("checkbox")/g,"$1" +'
-checked="true"');
+     var checked = app.model.cache().replace(/("checkbox")/g,"$1" +' checked="true"');
      var unchecked = app.model.cache().replace(/(checked="true")/g,"");
      var hidden_unchecked =
-app.model.cache().replace(/(<input.*)hidden(.)(.).*/,"$1checkbox$2" +'
-checked="true"'+"$3").match(/<input.*/).toString();
+app.model.cache().replace(/(<input.*)hidden(.)(.).*/,"$1checkbox$2" +' checked="true"'+"$3").match(/<input.*/).toString();
      var hidden_checked =
 app.model.cache().replace(/.*(<input\s[^>]*)checked="true"([^>]+)hidden(.*)/,"$1$2checkbox$3").match(/<input.*/).toString();
 
