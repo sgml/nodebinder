@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+ <title>Concentric Hex Demo</title>
+ <style>
+  #viewport, #viewport2 { position: absolute; }
+  #viewport { top:25%; left:25%; }
+  #viewport2 { top: 75%; left: 75%; }
+  #viewport span[class *= layer], #viewport2 span[class *= layer] {
+border-style: solid; position: absolute; }
+  .layer1 { border-color: #fff; }
+  .layer2 { border-color: #eee; }
+  .layer3 { border-color: #ddd; }
+  .layer4 { border-color: #ccc; }
+  .layer5 { border-color: #bbb; }
+  .layer6 { border-color: #aaa; }
+  .layer7 { border-color: #999; }
+  .layer8 { border-color: #888; }
+  .layer9 { border-color: #777; }
+  .layer10 { border-color: #666; }
+  .layer11 { border-color: #555; }
+  .layer12 { border-color: #444; }
+  .layer13 { border-color: #333; }
+  .layer14 { border-color: #222; }
+  .layer15 { border-color: #111; }
+  .layer16 { border-color: #000; }
+ </style>
+</head>
+<body>
+  <div id="viewport"></div>
+  <div id="viewport2"></div>
+<script>
+function drawSquares(hex,width)  .layer5 { border-color: #bbb; }
+  .layer6 { border-color: #aaa; }
+  .layer7 { border-color: #999; }
+  .layer8 { border-color: #888; }
+  .layer9 { border-color: #777; }
+  .layer10 { border-color: #666; }
+  .layer11 { border-color: #555; }
+  .layer12 { border-color: #444; }
+  .layer13 { border-color: #333; }
+  .layer14 { border-color: #222; }
+  .layer15 { border-color: #111; }
+  .layer16 { border-color: #000; }
+ </style>
+</head>
+<body>
+  <div id="viewport"></div>
+  <div id="viewport2"></div>
+<script>
+function drawSquares(hex,width)
+  {
+  var ui = function ui(substring,index,fullstring)
+    {
+    console.log(index === hex);
+    if (index >= hex)
+      {
+      return "<span class=|layer{index}|
+style=|border-width:{width}px;margin-left:-{width}px;margin-top:-{width}px;z-index:{zindex}|></span>".replace("{index}",index).replace(/\{width\}/g,width
+* index).replace("{zindex}", "-"+index);
+      }
+    else
+      {
+      return "";
+      }
+    };
+  return "||||||||||||||||".replace(/./g, ui).replace(/\|/g,"\u0022");
+  }
+document.querySelector("#viewport").innerHTML = drawSquares(0,8);
+document.querySelector("#viewport2").innerHTML = drawSquares(10,25);
+</script>
+</body>
+sgml
+Commit new file
+
+  {
+  var ui = function ui(substring,index,fullstring)
+    {
+    console.log(index === hex);
+    if (index >= hex)
+      {
+      return "<span class=|layer{index}|
+style=|border-width:{width}px;margin-left:-{width}px;margin-top:-{width}px;z-index:{zindex}|></span>".replace("{index}",index).replace(/\{width\}/g,width
+* index).replace("{zindex}", "-"+index);
+      }
+    else
+      {
+      return "";
+      }
+    };
+
+  return "||||||||||||||||".replace(/./g, ui).replace(/\|/g,"\u0022");
+  }
+
+document.querySelector("#viewport").innerHTML = drawSquares(0,8);
+document.querySelector("#viewport2").innerHTML = drawSquares(10,25);
+</script>
+</body>
+</html>
